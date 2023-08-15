@@ -9,8 +9,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+{{>CDNbootStrap}}
  </head>
  <body>
-    <h1>Hello HBS Template Engine</h1>
+{{!-- video 8 partials start--}}
+{{!-- navbar start--}}
+{{>nav}}
+{{!-- navbar end --}}
+
+{{!-- header start --}}
+{{>header}}
+{{!-- header end --}}
+
+{{!-- cards Start --}}
+<div class="d-flex">
+   {{>cards}}
+   {{>cards}}
+   {{>cards}}
+</div>
+{{!-- cards end --}}
+{{!-- video 8 partials end--}}
+
+
+
+    <h1>Hello HBS Template Engine by{{DynamicName}}</h1>
+    <h1>/about pe jao here we use render instead of res.send</h1>
+
+
+{{!-- video 8 partials start--}}
+
+{{!-- footer start--}}
+{{>footer}}
+{{!-- footer end--}}
+{{!-- video 8 partials end--}}
+
  </body>
  </html>

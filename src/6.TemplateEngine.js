@@ -1,4 +1,5 @@
-// Template Engine video 6
+// Template Engine video 6/7
+// partials video 8 // ye react k components k trha hai jis code ko hum re-use kr
 
 const express = require("express");
 const path = require("path");
@@ -17,10 +18,27 @@ app.set('views', viewsPath);
 
 // More configuration and routes
 app.get("/", (req, res) => {
-    res.render('index') //render kro index.hbs ko 
+    // res.render('index')
+    //OR 
+    res.render('index', {
+        DynamicName: "the way I am from Nodejs server Route"
+    }) //render kro index.hbs ko 
+
 })
-// Optional q k nichy jayega hi nhi
-// wo upper k page ko render krdyga
+// video 7
+app.get("/about", (req, res) => {
+    res.render('about')
+})
+
+// video 8 Partials     //apne Express k folder me k now use nodemon src/6.TemplateEngine.js -e js,hbs
+// use nodemon src/6.TemplateEngine.js -e js,hbs
+
+// console.log(path.join(__dirname, "../views/components"))
+const componentsPath = path.join(__dirname, "../views/components")
+hbs.registerPartials(componentsPath);
+
+// Optional 
+// jo  route upper hoga wo render hojaygea
 app.get("/", (req, res) => {
     res.send("Hello Template")
 })
