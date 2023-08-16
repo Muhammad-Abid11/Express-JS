@@ -43,6 +43,20 @@ app.get("/", (req, res) => {
     res.send("Hello Template")
 })
 
+// video 9 404 Page Not Found and Page in Progress
+
+app.get("/Services", (req, res) => {
+    res.render('Working')
+})
+
+
+app.get("/about/*", (req, res) => {  // " * " about k bad all pages q k wo upper sy check krty hoa ayega jo mila us page me enter
+    res.render('404')// warna page not found
+})
+app.get("*", (req, res) => {  // " * " all pages q k wo upper sy check krty hoa ayega jo mila us page me enter
+    res.render('404')// warna page not found
+})
+
 app.listen(port, () => {
     console.log(`Server is up ${port}`)
 })
