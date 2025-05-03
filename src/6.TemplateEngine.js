@@ -30,12 +30,12 @@ app.get("/about", (req, res) => {
     res.render('about')
 })
 
-// video 8 Partials     //apne Express k folder me k now use nodemon src/6.TemplateEngine.js -e js,hbs
-// use nodemon src/6.TemplateEngine.js -e js,hbs
+// video 8 Partials     //apne Express k folder me k now use $nodemon src/6.TemplateEngine.js -e js,hbs
+// use $nodemon src/6.TemplateEngine.js -e js,hbs //<---ye apne src sy bahir run krna hai ab ye .js .hbs dono ki changes monitor kryga
 
 // console.log(path.join(__dirname, "../views/components"))
 const componentsPath = path.join(__dirname, "../views/components")
-hbs.registerPartials(componentsPath);
+hbs.registerPartials(componentsPath);//here we connect HBS with our Project
 
 // Optional 
 // jo  route upper hoga wo render hojaygea
@@ -50,10 +50,11 @@ app.get("/Services", (req, res) => {
 })
 
 
-app.get("/about/*", (req, res) => {  // " * " about k bad all pages q k wo upper sy check krty hoa ayega jo mila us page me enter
+app.get("/about/*", (req, res) => {  // " * " about k page k nested route per bhi agar user hit kry too bhi 404 dikhao
     res.render('404')// warna page not found
 })
-app.get("*", (req, res) => {  // " * " all pages q k wo upper sy check krty hoa ayega jo mila us page me enter
+app.get("*", (req, res) => {  // " * " universal opearator  always at bottom
+    // all pages q k wo upper sy check krty hoa ayega jo mila us page me enter
     res.render('404')// warna page not found
 })
 
